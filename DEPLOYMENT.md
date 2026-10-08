@@ -28,9 +28,10 @@ NEXT_PUBLIC_APP_URL=https://eventos.sh
 EVENTOS_SECRET_KEY=generate_a_64_character_hex_random_key
 
 # ------------------------------------------------------------------------------
-# AI INTELLIGENCE
+# AI INTELLIGENCE (Groq LPU Inference)
 # ------------------------------------------------------------------------------
-GEMINI_API_KEY=AIzaSy...
+GROQ_API_KEY=gsk_...
+GROQ_MODEL=llama-3.3-70b-versatile
 
 # ------------------------------------------------------------------------------
 # AUTOMATION & WEBHOOKS (Optional)
