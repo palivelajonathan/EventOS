@@ -1,0 +1,318 @@
+@import "tailwindcss";
+
+/* ============================================================
+   OBSIDIAN KINETIC — Design System
+   Stitch Visual Source of Truth
+   ============================================================ */
+
+@theme {
+  /* ── Color Tokens ─────────────────────────────────── */
+  --color-surface: #111319;
+  --color-surface-dim: #111319;
+  --color-surface-bright: #37393f;
+  --color-surface-container-lowest: #0c0e13;
+  --color-surface-container-low: #191c21;
+  --color-surface-container: #1d2025;
+  --color-surface-container-high: #282a30;
+  --color-surface-container-highest: #33353b;
+  --color-on-surface: #e2e2ea;
+  --color-on-surface-variant: #c7c4d7;
+  --color-inverse-surface: #e2e2ea;
+  --color-inverse-on-surface: #2e3036;
+  --color-outline: #908fa0;
+  --color-outline-variant: #464554;
+  --color-surface-tint: #c0c1ff;
+  --color-surface-variant: #33353b;
+  --color-background: #111319;
+  --color-on-background: #e2e2ea;
+
+  --color-primary: #c0c1ff;
+  --color-on-primary: #1000a9;
+  --color-primary-container: #8083ff;
+  --color-on-primary-container: #0d0096;
+  --color-inverse-primary: #494bd6;
+  --color-primary-fixed: #e1e0ff;
+  --color-primary-fixed-dim: #c0c1ff;
+  --color-on-primary-fixed: #07006c;
+  --color-on-primary-fixed-variant: #2f2ebe;
+
+  --color-secondary: #4cd7f6;
+  --color-on-secondary: #003640;
+  --color-secondary-container: #03b5d3;
+  --color-on-secondary-container: #00424e;
+  --color-secondary-fixed: #acedff;
+  --color-secondary-fixed-dim: #4cd7f6;
+  --color-on-secondary-fixed: #001f26;
+  --color-on-secondary-fixed-variant: #004e5c;
+
+  --color-tertiary: #bdc2ff;
+  --color-on-tertiary: #131e8c;
+  --color-tertiary-container: #7c87f3;
+  --color-on-tertiary-container: #081486;
+  --color-tertiary-fixed: #e0e0ff;
+  --color-tertiary-fixed-dim: #bdc2ff;
+  --color-on-tertiary-fixed: #000767;
+  --color-on-tertiary-fixed-variant: #2f3aa3;
+
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  /* ── Semantic Status Colors ───────────────────────── */
+  --color-live: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  /* ── Typography ──────────────────────────────────── */
+  --font-geist: "Geist", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* ── Font Sizes with full specs ──────────────────── */
+  --font-size-headline-xl: 3rem;
+  --line-height-headline-xl: 3.5rem;
+  --letter-spacing-headline-xl: -0.03em;
+
+  --font-size-headline-xl-mobile: 2rem;
+  --line-height-headline-xl-mobile: 2.5rem;
+  --letter-spacing-headline-xl-mobile: -0.02em;
+
+  --font-size-headline-lg: 2rem;
+  --line-height-headline-lg: 2.5rem;
+  --letter-spacing-headline-lg: -0.02em;
+
+  --font-size-headline-md: 1.25rem;
+  --line-height-headline-md: 1.75rem;
+  --letter-spacing-headline-md: -0.01em;
+
+  --font-size-body-lg: 1rem;
+  --line-height-body-lg: 1.5rem;
+  --letter-spacing-body-lg: -0.005em;
+
+  --font-size-body-md: 0.875rem;
+  --line-height-body-md: 1.375rem;
+  --letter-spacing-body-md: 0em;
+
+  --font-size-body-sm: 0.75rem;
+  --line-height-body-sm: 1.125rem;
+  --letter-spacing-body-sm: 0.01em;
+
+  --font-size-label-md: 0.8125rem;
+  --line-height-label-md: 1rem;
+  --letter-spacing-label-md: 0.02em;
+
+  --font-size-label-sm: 0.6875rem;
+  --line-height-label-sm: 0.875rem;
+  --letter-spacing-label-sm: 0.04em;
+
+  --font-size-data-mono: 0.875rem;
+  --line-height-data-mono: 1.25rem;
+  --letter-spacing-data-mono: -0.01em;
+
+  /* ── Border Radius (Stitch exact) ────────────────── */
+  --radius: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  /* ── Spacing (Stitch scale) ──────────────────────── */
+  --spacing-gutter: 1rem;
+  --spacing-gutter-desktop: 1.5rem;
+  --spacing-margin: 1rem;
+  --spacing-margin-desktop: 2rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+
+  /* ── Custom Animations ───────────────────────────── */
+  --animate-laser: laser 2s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-orbit: orbit 12s linear infinite;
+  --animate-orbit-reverse: orbit 8s linear infinite reverse;
+}
+
+/* ── Keyframe Definitions ──────────────────────────── */
+@keyframes laser {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(100%); opacity: 0.4; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px currentColor; }
+  50% { box-shadow: 0 0 20px currentColor, 0 0 40px currentColor; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Base Reset ────────────────────────────────────── */
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Hide scrollbars — Stitch standard */
+  ::-webkit-scrollbar { display: none; }
+  * { scrollbar-width: none; }
+
+  /* Focus rings for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* ── Typography Utilities ──────────────────────────── */
+@layer utilities {
+  /* Headline classes */
+  .text-headline-xl {
+    font-family: var(--font-geist);
+    font-size: var(--font-size-headline-xl);
+    line-height: var(--line-height-headline-xl);
+    letter-spacing: var(--letter-spacing-headline-xl);
+    font-weight: 600;
+  }
+
+  .text-headline-xl-mobile {
+    font-family: var(--font-geist);
+    font-size: var(--font-size-headline-xl-mobile);
+    line-height: var(--line-height-headline-xl-mobile);
+    letter-spacing: var(--letter-spacing-headline-xl-mobile);
+    font-weight: 600;
+  }
+
+  .text-headline-lg {
+    font-family: var(--font-geist);
+    font-size: var(--font-size-headline-lg);
+    line-height: var(--line-height-headline-lg);
+    letter-spacing: var(--letter-spacing-headline-lg);
+    font-weight: 500;
+  }
+
+  .text-headline-md {
+    font-family: var(--font-geist);
+    font-size: var(--font-size-headline-md);
+    line-height: var(--line-height-headline-md);
+    letter-spacing: var(--letter-spacing-headline-md);
+    font-weight: 500;
+  }
+
+  .text-body-lg {
+    font-family: var(--font-geist);
+    font-size: var(--font-size-body-lg);
+    line-height: var(--line-height-body-lg);
+    letter-spacing: var(--letter-spacing-body-lg);
+    font-weight: 400;
+  }
+
+  .text-body-md {
+    font-family: var(--font-geist);
+    font-size: var(--font-size-body-md);
+    line-height: var(--line-height-body-md);
+    letter-spacing: var(--letter-spacing-body-md);
+    font-weight: 400;
+  }
+
+  .text-body-sm {
+    font-family: var(--font-geist);
+    font-size: var(--font-size-body-sm);
+    line-height: var(--line-height-body-sm);
+    letter-spacing: var(--letter-spacing-body-sm);
+    font-weight: 400;
+  }
+
+  .text-label-md {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label-md);
+    line-height: var(--line-height-label-md);
+    letter-spacing: var(--letter-spacing-label-md);
+    font-weight: 500;
+  }
+
+  .text-label-sm {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label-sm);
+    line-height: var(--line-height-label-sm);
+    letter-spacing: var(--letter-spacing-label-sm);
+    font-weight: 500;
+  }
+
+  .text-data-mono {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-data-mono);
+    line-height: var(--line-height-data-mono);
+    letter-spacing: var(--letter-spacing-data-mono);
+    font-weight: 400;
+  }
+
+  /* Font family helpers */
+  .font-geist { font-family: var(--font-geist); }
+  .font-mono { font-family: var(--font-mono); }
+
+  /* Pill geometry (separate from rounded-full Stitch token) */
+  .rounded-pill { border-radius: 9999px; }
+
+  /* Chiseled edge highlight (Stitch elevation pattern) */
+  .chiseled-edge {
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* Active indigo glow */
+  .active-glow {
+    box-shadow: 0 0 24px -4px rgba(99, 102, 241, 0.35);
+  }
+
+  /* Cyan telemetry glow */
+  .cyan-glow {
+    box-shadow: 0 0 8px var(--color-secondary);
+  }
+
+  /* Primary button glow */
+  .primary-glow {
+    box-shadow: 0 0 30px rgba(128, 131, 255, 0.4);
+  }
+  .primary-glow:hover {
+    box-shadow: 0 0 45px rgba(128, 131, 255, 0.6);
+  }
+
+  /* Laser scan animation */
+  .animate-laser {
+    animation: var(--animate-laser);
+  }
+
+  .animate-float {
+    animation: var(--animate-float);
+  }
+
+  .animate-orbit {
+    animation: var(--animate-orbit);
+  }
+
+  .animate-orbit-reverse {
+    animation: var(--animate-orbit-reverse);
+  }
+
+  /* Margin utilities */
+  .px-margin { padding-left: var(--spacing-margin); padding-right: var(--spacing-margin); }
+  .px-margin-desktop { padding-left: var(--spacing-margin-desktop); padding-right: var(--spacing-margin-desktop); }
+  .px-gutter { padding-left: var(--spacing-gutter); padding-right: var(--spacing-gutter); }
+  .px-gutter-desktop { padding-left: var(--spacing-gutter-desktop); padding-right: var(--spacing-gutter-desktop); }
+}
