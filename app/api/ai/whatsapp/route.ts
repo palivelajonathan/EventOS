@@ -30,14 +30,34 @@ export async function GET(req: NextRequest) {
   const token = searchParams.get("hub.verify_token");
   const challenge = searchParams.get("hub.challenge");
 
-  const expectedToken =
-    process.env.WHATSAPP_VERIFY_TOKEN || "eventos_whatsapp_verify_token_2026";
+  const expectedToken = process.env.WHATSAPP_VERIFY_TOKEN;
 
-  if (mode === "subscribe" && token === expectedToken) {
-    return new Response(challenge || "", { status: 200 });
+  // Meta handshake validation:
+  // 1. hub.mode must be "subscribe"
+  // 2. hub.verify_token must match process.env.WHATSAPP_VERIFY_TOKEN
+  // 3. hub.challenge must be provided
+  if (
+    mode === "subscribe" &&
+    token &&
+    expectedToken &&
+    token.trim() === expectedToken.trim() &&
+    challenge
+  ) {
+    return new Response(challenge, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/plain",
+      },
+    });
   }
 
-  return NextResponse.json({ status: "EventOS WhatsApp AI Webhook Active" });
+  // If verification fails or parameters are invalid, return HTTP 403 Forbidden
+  return new Response("Forbidden", {
+    status: 403,
+    headers: {
+      "Content-Type": "text/plain",
+    },
+  });
 }
 
 export async function POST(req: NextRequest) {

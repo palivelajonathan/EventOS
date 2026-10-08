@@ -34,6 +34,15 @@ GROQ_API_KEY=gsk_...
 GROQ_MODEL=llama-3.3-70b-versatile
 
 # ------------------------------------------------------------------------------
+# META WHATSAPP CLOUD API & WEBHOOK
+# ------------------------------------------------------------------------------
+# Set this to the exact custom token entered in Meta Developer Portal Webhook Callback configuration:
+WHATSAPP_VERIFY_TOKEN=your_custom_verify_token
+# Outbound token for sending passes:
+WHATSAPP_ACCESS_TOKEN=EAAG...
+WHATSAPP_PHONE_NUMBER_ID=100000000000000
+
+# ------------------------------------------------------------------------------
 # AUTOMATION & WEBHOOKS (Optional)
 # ------------------------------------------------------------------------------
 N8N_WEBHOOK_URL=https://n8n.yourdomain.com/webhook/eventos
